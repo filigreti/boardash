@@ -54,9 +54,7 @@ export default new Vuex.Store({
         "Any delicate you how kindness horrible outlived servants. You high bed wish help call draw side. Girl quit if case mr sing as no have.",
         "At none neat am do over will. Agreeable promotion eagerness as we resources household to distrusts.",
         "Ferrars all spirits his imagine effects amongst neither. It bachelor cheerful of mistaken. Tore has sons put upon wife use bred seen.",
-        "Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. ",
-        "後竊聽 ﻿白圭志 第十一回 不稱讚 訖乃返 己轉身. 此是後話 也懊悔不了 ，愈聽愈惱 饒爾去罷」. 關雎 意 耳 」 曰： ，可 覽. 冒認收了 汗流如雨 玉，",
-        " ﻿白圭志 以測機 樂而不淫. 貢院 意 出 第四回 相域 事 誨 矣 曰： 耳 第二回. 父親回衙 汗流如雨 玉，不題 吉安而來 冒認收了. 也懊悔不了 ﻿白圭志 以測機 樂而不淫. 貢院 意 出 第四回 相域 事 誨 矣 曰： 耳 第二回. 父親回衙 汗流如雨 玉，不題 吉安而來 冒認收了. 也懊悔不了"
+        "Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though. "
       ];
 
       let newData = res.data;
@@ -71,7 +69,13 @@ export default new Vuex.Store({
     async getSingleUser({ commit }) {
       let res = await axios.get(
         "https://api.github.com/users/brunocvcunha",
-        {}
+        {},
+        {
+          auth: {
+            username: "filigreti",
+            password: "zqwxas12"
+          }
+        }
       );
       commit("setSingleUser", res.data);
     }

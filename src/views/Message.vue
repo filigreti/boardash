@@ -25,7 +25,7 @@
       <div
         class="error"
         v-else-if="this.$store.state.users.length === 0"
-      >Your probably dont have Internet Connection</div>
+      >Your probably dont have Internet Connection or multiple requests to github api has reached its limit. Try again in one hour</div>
       <div class="mb-4" v-else>
         <Messages />
       </div>
