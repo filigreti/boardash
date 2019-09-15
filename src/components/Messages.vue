@@ -15,7 +15,7 @@
           <span class="mess-trun pl-2">{{message.text | truncate}}</span>
         </span>
         <div class>
-          <i class="material-icons">more_vert</i>
+          <i class="material-icons icon-more">more_vert</i>
         </div>
       </div>
     </div>
@@ -78,5 +78,8 @@ export default {
   color: #858a96;
   font-size: 13px;
   font-weight: 100;
+}
+.icon-more {
+  color: #858a967a;
 }
 </style>
