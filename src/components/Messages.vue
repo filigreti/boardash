@@ -1,10 +1,14 @@
 <template>
   <div class="messages">
     <div v-for="message in $store.state.message" :key="message.id">
-      <div class="card-area grids">
+      <div
+        :class="{'shadow-lg lengthy':checked.includes(message.id)}"
+        class="card-area grids"
+        @click="currentId = message.id"
+      >
         <div class="flex-center">
           <label class="kontainer">
-            <input type="checkbox" />
+            <input type="checkbox" :id="message.id" :value="message.id" v-model="checked" />
             <span class="checkmark"></span>
           </label>
         </div>
@@ -27,6 +31,22 @@
 
 <script>
 export default {
+  data() {
+    return {
+      checked: [5],
+      currentId: null
+    };
+  },
+  methods: {
+    checking(x) {
+      if (this.checked.length !== 0) {
+        this.checked.forEach(data => {
+          data === x;
+        });
+        return "shadow";
+      }
+    }
+  },
   filters: {
     truncate: function(value) {
       if (value.length > 20) {
@@ -103,7 +123,6 @@ export default {
   width: 0;
 }
 
-/* Create a custom checkbox */
 .checkmark {
   display: flex;
   align-items: center;
@@ -114,9 +133,6 @@ export default {
   border-radius: 4px;
   border: 1px solid #d4d4d4;
   background-color: white;
-}
-
-.kontainer:hover input ~ .checkmark {
 }
 
 .kontainer input:checked ~ .checkmark {
@@ -139,5 +155,11 @@ export default {
 .kontainer .checkmark:after {
   border: 1.5px solid white;
   border-radius: 100%;
+}
+.lengthy {
+  position: relative;
+  margin: -5px -12px;
+  height: 8.9vh;
+  padding: 5px 12px;
 }
 </style>
