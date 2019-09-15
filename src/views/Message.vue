@@ -3,6 +3,7 @@
     <div class="flex-end fixed">
       <div class="flex-between mb-3">
         <h5>{{$route.name}}</h5>
+        <div v-if="loading">loading</div>
         <div class="flex">
           <div class="flex-center color-grey cusor">
             <i :class="{disable:first== 0}" @click="back()" class="material-icons">chevron_left</i>
@@ -57,21 +58,20 @@ export default {
     back() {
       this.loading = true;
       this.first = this.first - 50;
-      this.number = this.number - 1;
       this.getData();
+      this.number = this.number - 1;
       this.loading = false;
     },
     next() {
       this.loading = true;
       this.first = this.first + 50;
-      this.number = this.number + 1;
       this.getData();
+      this.number = this.number + 1;
       this.loading = false;
     }
   },
   mounted() {
     this.getData();
-    console.log(this.$store.state.users);
   }
 };
 </script>

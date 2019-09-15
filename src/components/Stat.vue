@@ -53,7 +53,6 @@ export default {
   },
   mounted() {
     this.getData();
-    console.log(this.$store.state.user);
   }
 };
 </script>
