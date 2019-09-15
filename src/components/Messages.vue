@@ -3,7 +3,10 @@
     <div v-for="message in $store.state.message" :key="message.id">
       <div class="card-area grids">
         <div class="flex-center">
-          <input type="checkbox" name id />
+          <label class="kontainer">
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+          </label>
         </div>
         <div class="img-container flex-center">
           <img :src="message.avatar_url" class="img-fluid image-message" alt />
@@ -81,5 +84,63 @@ export default {
 }
 .icon-more {
   color: #858a967a;
+}
+.check {
+  background: blue;
+}
+.kontainer {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.kontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  height: 17px;
+  width: 17px;
+  border-radius: 4px;
+  border: 1px solid #d4d4d4;
+  background-color: white;
+}
+
+.kontainer:hover input ~ .checkmark {
+}
+
+.kontainer input:checked ~ .checkmark {
+  background-color: #2196f3;
+  border: none;
+}
+
+.checkmark:after {
+  content: "";
+  font-size: 3px;
+  position: absolute;
+  display: none;
+}
+
+.kontainer input:checked ~ .checkmark:after {
+  display: block;
+  font-size: 2px;
+}
+
+.kontainer .checkmark:after {
+  border: 1.5px solid white;
+  border-radius: 100%;
 }
 </style>
